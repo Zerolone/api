@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Zerolone的API大全</title>
+<meta name="keywords"    content="PHP网站制作,Asp网站制作,二次开发,医学网站制作,摄影网站制作,企业网站建设,网站采集,Win32应用程序,Delphi">
+<meta name="description" content="PHP网站制作,Asp网站制作,二次开发,医学网站制作,摄影网站制作,企业网站建设,网站采集,Win32应用程序,Delphi,PHP5 MySQL5开发,PHP是我的职业,Delphi是我的爱好,开发网站联系方式：Zerolone@163.com QQ:6661823,">
+<meta name="Author" content="Zerolone, www.Zerolone.com" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.5.2/jquery.min.js"></script>
+<script language="javascript">
+$(function(){
+  $('#btnIP').click(function(){
+    var url='http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip='+$('#txtIP').val();
+    
+    $.getScript(url).done(function(script, textStatus) {
+    //console.info(remote_ip_info);
+      $('#divTest').html('');
+      var strTmp = '';
+      strTmp+='<br />国家：      '+remote_ip_info.country;
+      strTmp+='<br />省：        '+remote_ip_info.province;
+      strTmp+='<br />市：        '+remote_ip_info.city;
+      strTmp+='<br />运营商：    '+remote_ip_info.isp;
+       
+      $('#divTest').html(strTmp);
+    
+    }).fail(function(jqxhr, settings, exception) {
+      $('#divTest').html('查询失败');
+    });    
+  });
+});
+
+</script>
+<br /><input type="text"   value="202.101.224.69"         id="txtIP" />
+<br /><input type="button" value="JQuery获取IP地址的信息" id="btnIP" />
+<br />调试信息：<div id='divTest'></div>

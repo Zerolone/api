@@ -1,0 +1,14 @@
+<br />调试信息：<div id='divTest'></div>
+
+<script src="http://j.maxmind.com/app/geoip.js"></script>
+<script type="text/javascript">
+  var tmpStr='';
+  tmpStr+='<br />国家：' +geoip_country_name();
+  tmpStr+='<br />省份：' +geoip_region_name();
+  tmpStr+='<br />城市：' +geoip_city();
+  tmpStr+='<br />纬度：' +geoip_latitude();
+  tmpStr+='<br />经度：' +geoip_longitude();
+
+  document.getElementById('divTest').innerHTML=tmpStr;
+</script>
+
